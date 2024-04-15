@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tax Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+
+        <h2 class="logo">Tax Calculator</h2>
+        <div class="container custom-container mt-5 ">
+            <form action="">
+                <div class="form-group">
+                    <div class="label">
+                        <label for="grossIncome">Enter Gross Annual Income (In Lakhs)</label>
+                        <div class="input-info"
+                            data-info="Gross annula income is your total salary in year before any deductions">
+                            <img src="icons8-question-32.png" alt="input info">
+                        </div>
+                    </div>
+                    <div class="input-group input">
+                        <input type="text" class="form-control shadow-none board-none form-control-plaintext"
+                            id="grossIncome" placeholder="Enter a number">
+                        <div class="error" data-tooltip="Enter valid numbers.">
+                            <img src="icons8-error-24.png" alt="error-icon" class=" error-icon d-none">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="label">
+                        <label for="extraIncome">Enter Extra Income (in Lakhs)</label>
+                        <div class="input-info" data-info="Extra Income is additional to the gross annula income.">
+                            <img src="icons8-question-32.png" alt="input info">
+                        </div>
+                    </div>
+
+                    <div class="input">
+                        <input type="text" class="form-control form-control-plaintext" id="extraIncome"
+                            placeholder="Enter extra income">
+                        <div class="error" data-tooltip="Enter valid numbers.">
+                            <img src="icons8-error-24.png" alt="error-icon" class=" error-icon d-none">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="ageGroup">Select Age Group</label>
+                    <div class="input">
+                        <select class="form-control form-control-plaintext" id="ageGroup">
+                            <option value="<40">Less than 40</option>
+                            <option value=">=40&<60">Between 40 and 59 </option>
+                            <option value=">=60">60 and above</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="label">
+                        <label for="deductions">Enter total Applicable Deductions (in Lakhs)</label>
+                        <div class="input-info" data-info="Deductions of total income in year.">
+                            <img src="icons8-question-32.png" alt="input info">
+                        </div>
+                    </div>
+
+                    <div class="input">
+                        <input type="text" class="form-control form-control-plaintext" id="deductions"
+                            placeholder="Enter deductions">
+                        <div class="error" data-tooltip="Enter valid numbers.">
+                            <img src="icons8-error-24.png" alt="error-icon" class=" error-icon d-none">
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" id="btn">Calculate</button>
+
+            </form>
+        </div>
+        <div class="overlay hidden"></div>
+        <div class="results hidden">
+            <span id="close" class="exit">&times;</span>
+            <p id="result"> </p>
+            <button class="btn btn-danger exit">Exit</button>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="index.js"></script>
+    </main>
+</body>
+
+</html>

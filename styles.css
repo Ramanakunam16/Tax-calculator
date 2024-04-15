@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Courier New", Courier, monospace;
+}
+.logo {
+  text-align: center;
+  margin: 40px auto;
+  font-family: "Courier New", Courier, monospace;
+}
+.form-control:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none;
+}
+.custom-container {
+  width: 50%;
+  min-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+.form-control:focus {
+  border-color: hsl(
+    210,
+    14%,
+    83%
+  ); /* You can set this to any color you prefer */
+  box-shadow: none; /* Optional: Removes the shadow on focus */
+  outline: 0 !important;
+}
+.label {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.input-info {
+  position: relative;
+  /* width: 50px;
+  height: 50px; */
+}
+.input-info img {
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 34px;
+}
+
+.input-info::before,
+.input-info::after {
+  position: absolute;
+  content: "";
+  visibility: hidden; /* Start hidden */
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0s 0.3s;
+}
+
+.input-info::before {
+  content: attr(data-info);
+  top: -35px;
+  left: 50%;
+
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 5px 10px;
+  color: white;
+  background-color: #333;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.input-info::after {
+  top: 15px;
+  left: 50%;
+  /* border-width: 5px; */
+  transform: translateX(-50%) translateY(-100%);
+  border: 10px solid transparent;
+  border-top-color: #333;
+}
+
+.input-info:hover::before,
+.input-info:hover::after {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.input {
+  position: relative;
+  display: flex;
+  border: 1px solid #333;
+  padding: 8px;
+}
+.error::before,
+.error::after {
+  --scale: 0;
+  --translate-y: -50%;
+  position: absolute;
+  content: "";
+  top: -1rem;
+  right: -5rem;
+  /* background: #333; */
+  transform: translateX(-50%) translateY(var(--translate-y, 0))
+    scale(var(--scale));
+  transition: 150ms transform;
+  transform-origin: bottom center;
+}
+
+.error::before {
+  content: attr(data-tooltip);
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  width: max-content;
+  max-width: 100%;
+  background-color: #333;
+}
+.error::after {
+  position: absolute;
+  top: 15px;
+  right: 1rem;
+  content: "";
+  border: 10px solid transparent;
+  border-top-color: #333;
+  transform-origin: top center;
+}
+.error:hover::before,
+.error:hover::after {
+  --scale: 1;
+}
+
+.error-icon {
+  color: #dc3545;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.results {
+  position: relative;
+  top: -360px;
+  width: 60%;
+  height: 60%;
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 40px;
+  margin: auto;
+  transition: 150ms ease-in-out;
+}
+.results p {
+  font-size: 25px;
+}
+#close {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  font-size: 30px;
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 0;
+}
