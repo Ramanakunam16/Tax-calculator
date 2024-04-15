@@ -15,6 +15,7 @@ This tax calculator project showcases my skills in HTML, CSS, & JavaScript. It's
 ## How to Use
 
 - Click [HERE](https://newtaxcalculator.netlify.app/). to explore the live website.
+- If you want to run this project in your local environment clone repo using *git clone* command and then install live-server extension
 - Select currency type.
 - Fill provided form with valid inputs and click calculate or submit button.
   
