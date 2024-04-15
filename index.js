@@ -10,18 +10,20 @@ const error_tooltip = document.querySelector(".error-tooltip");
 const overlay = document.querySelector(".overlay");
 const exit = document.querySelectorAll(".exit");
 const calculatebtn = document.querySelector(".btn");
+const currency = document.querySelector("#currency");
+const reset = document.querySelector(".reset");
 
 //calculation Button
 calculatebtn.addEventListener("click", (e) => {
   e.preventDefault();
   console.log("clicked");
-  const grossIncome = +grossIncomeValue.value;
+  let grossIncome = grossIncomeValue.value;
   console.log(grossIncome);
-  const extraIncome = +extraIncomeValue.value;
+  let extraIncome = extraIncomeValue.value;
   console.log(extraIncome);
   const ageGroup = ageGroupValue.value;
   console.log(ageGroup);
-  const deductionAmount = +deductionAmountVAlue.value;
+  let deductionAmount = deductionAmountVAlue.value;
   console.log(deductionAmount);
 
   // let errorMessage = "";
@@ -51,15 +53,13 @@ calculatebtn.addEventListener("click", (e) => {
   //Validating input fields
   inputs.forEach((input) => {
     let isValid;
-    if (input.value !== 0) {
+    if (input.value !== "") {
       isValid = isValidNumber(input.value);
     } else {
       isValid = false;
     }
     if (isValid) {
       input.errorIcon.classList.add("d-none");
-      // overlay.classList.remove("hidden");
-      // results.classList.remove("hidden");
     } else {
       input.errorIcon.classList.remove("d-none");
     }
@@ -77,11 +77,11 @@ calculatebtn.addEventListener("click", (e) => {
   function checkAllInputsValid() {
     return inputs.every((input) => {
       let value = input.value;
-      return value !== 0;
+      return value !== "";
     });
   }
   if (checkAllInputsValid()) {
-    overlay.classList.remove("hidden");
+    // overlay.classList.remove("hidden");
     results.classList.remove("hidden");
   } else {
     overlay.classList.add("hidden");
@@ -90,23 +90,34 @@ calculatebtn.addEventListener("click", (e) => {
 
   // calculating tax
   const { income_after_tax, taxAmount } = totalAmountAfterTax(
-    grossIncome,
-    extraIncome,
+    +grossIncome,
+    +extraIncome,
     ageGroup,
-    deductionAmount
+    +deductionAmount
   );
-
+  let currencyValue = currency.value;
   //Inserting resulted income after tax deduction
-  result.innerHTML = `Your overall Income after tax deduction is ${numberWithCommas(
-    income_after_tax
-  )} with dedcution of ${numberWithCommas(taxAmount)}`;
+  if (currencyValue === "USD") {
+    result.innerHTML = `Your overall Income after tax deduction is $ ${numberWithCommas(
+      income_after_tax
+    )} with dedcution of $ ${numberWithCommas(taxAmount)}`;
+  } else {
+    result.innerHTML = `Your overall Income after tax deduction is ₹ ${numberWithCommas(
+      income_after_tax
+    )} with dedcution of ₹ ${numberWithCommas(taxAmount)}`;
+  }
+
+  grossIncomeValue.value =
+    extraIncomeValue.value =
+    deductionAmountVAlue.value =
+      "";
 });
 
 //overlay ,when click it closes modal
-overlay.addEventListener("click", () => {
-  overlay.classList.add("hidden");
-  results.classList.add("hidden");
-});
+// overlay.addEventListener("click", () => {
+//   overlay.classList.add("hidden");
+//   results.classList.add("hidden");
+// });
 //exit ,when click it closes modal
 exit.forEach((exit) => {
   exit.addEventListener("click", () => {
@@ -114,6 +125,16 @@ exit.forEach((exit) => {
     overlay.classList.add("hidden");
     results.classList.add("hidden");
   });
+});
+
+// reset fields
+
+reset.addEventListener("click", (e) => {
+  e.preventDefault();
+  grossIncomeValue.value =
+    extraIncomeValue.value =
+    deductionAmountVAlue.value =
+      "";
 });
 
 // a function to calculate total income after tax dedecution

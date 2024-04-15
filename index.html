@@ -12,11 +12,24 @@
     <main>
 
         <h2 class="logo">Tax Calculator</h2>
-        <div class="container custom-container mt-5 ">
-            <form action="">
+        <div class="custom-container">
+            <form>
+                <div class="form-group">
+                    <label for="currency">Select Currency</label>
+                    <div class="input">
+                        <select class="form-control form-control-plaintext" id="currency">
+                            <option value="USD">USD</option>
+                            <option value="INR">INR</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class=" custom-container  mt-5 ">
+            <form>
                 <div class="form-group">
                     <div class="label">
-                        <label for="grossIncome">Enter Gross Annual Income (In Lakhs)</label>
+                        <label for="grossIncome">Enter Gross Annual Income</label>
                         <div class="input-info"
                             data-info="Gross annula income is your total salary in year before any deductions">
                             <img src="icons8-question-32.png" alt="input info">
@@ -34,7 +47,7 @@
 
                 <div class="form-group">
                     <div class="label">
-                        <label for="extraIncome">Enter Extra Income (in Lakhs)</label>
+                        <label for="extraIncome">Enter Extra Income</label>
                         <div class="input-info" data-info="Extra Income is additional to the gross annula income.">
                             <img src="icons8-question-32.png" alt="input info">
                         </div>
@@ -62,7 +75,7 @@
 
                 <div class="form-group">
                     <div class="label">
-                        <label for="deductions">Enter total Applicable Deductions (in Lakhs)</label>
+                        <label for="deductions">Enter total Applicable Deductions</label>
                         <div class="input-info" data-info="Deductions of total income in year.">
                             <img src="icons8-question-32.png" alt="input info">
                         </div>
@@ -78,7 +91,7 @@
                 </div>
 
                 <button class="btn btn-primary" id="btn">Calculate</button>
-
+                <button class="btn btn-danger reset">Reset</button>
             </form>
         </div>
         <div class="overlay hidden"></div>

@@ -5,6 +5,15 @@
   scroll-behavior: smooth;
   font-family: "Courier New", Courier, monospace;
 }
+body {
+  margin: 0;
+  background-image: url("taxcalBg.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 120vh;
+}
 .logo {
   text-align: center;
   margin: 40px auto;
@@ -17,11 +26,13 @@
 }
 .custom-container {
   width: 50%;
-  min-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  min-width: 650px;
+  margin-top: 20px;
+  margin-left: 5%;
   border: 1px solid #ccc;
-  padding: 10px;
+  padding: 20px;
+
+  background-color: #fff;
 }
 .form-control:focus {
   border-color: hsl(
@@ -100,7 +111,7 @@
   position: absolute;
   content: "";
   top: -1rem;
-  right: -5rem;
+  right: -7rem;
   /* background: #333; */
   transform: translateX(-50%) translateY(var(--translate-y, 0))
     scale(var(--scale));
@@ -147,7 +158,7 @@
   text-align: center;
   padding: 40px;
   margin: auto;
-  transition: 150ms ease-in-out;
+  transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out;
 }
 .results p {
   font-size: 25px;
@@ -173,3 +184,7 @@
   backdrop-filter: blur(3px);
   z-index: 0;
 }
+
+/*
+media queries
+*/
