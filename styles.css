@@ -189,3 +189,8 @@ body {
 /*
 media queries
 */
+@media only screen and(max-width:400px) {
+  .results {
+    width: 100%;
+  }
+}
