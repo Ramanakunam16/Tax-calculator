@@ -7,11 +7,10 @@
 }
 body {
   margin: 0;
-  background-image: url("taxcalBg.jpeg");
+  background: url("taxcalBg.jpeg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  width: 100%;
   height: 120vh;
 }
 .logo {
@@ -24,15 +23,17 @@ body {
   box-shadow: none !important;
   border: none;
 }
+
 .custom-container {
-  width: 50%;
-  min-width: 650px;
-  margin-top: 20px;
-  margin-left: 5%;
+  min-width: 50%;
   border: 1px solid #ccc;
   padding: 20px;
 
   background-color: #fff;
+  width: 30%;
+  min-width: 650px;
+  margin-top: 20px;
+  margin-left: 5%;
 }
 .form-control:focus {
   border-color: hsl(
